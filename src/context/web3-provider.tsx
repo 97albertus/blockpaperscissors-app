@@ -62,7 +62,8 @@ createWeb3Modal({
 	chains,
 	themeMode: "light",
 	themeVariables: {
-		"--w3m-border-radius-master": "1px",
+		"--w3m-border-radius-master": "24px",
+		"--w3m-font-family": "Bricolage Grotesque, sans-serif",
 	},
 });
 
