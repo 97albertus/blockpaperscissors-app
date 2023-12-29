@@ -16,6 +16,8 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 		`${address}-${id}-hand`,
 	);
 	const [password, savePassword] = useLocalStorage<string>(`${address}-pwd`);
+	const endTime = Number(game.startTime) + 10 * 60; // 1 hour from now
+	const timeLeft = useCountdown(endTime);
 
 	const {
 		data: cancelData,
@@ -157,8 +159,6 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 				);
 			}
 			case 1: {
-				const endTime = Number(game.startTime) + 10 * 60; // 1 hour from now
-				const timeLeft = useCountdown(endTime);
 				const isTimedOut = Date.now() > endTime * 1000;
 
 				return (
