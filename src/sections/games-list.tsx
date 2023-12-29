@@ -28,25 +28,28 @@ export default function GamesList({ userGames }: { userGames?:boolean }) {
 	function processGameCreated(log: any[]) {
 		try {
 			console.log("GameCreated event received", log);
-			const eventData = log[0].args;
 
-			const newGame: GameData = {
-				id: eventData.gameId!,
-				bet: eventData.bet!,
-				player1: eventData.player1!,
-				player1Commit: eventData.player1Commit!,
-				status: GameStatus.WaitingForPlayer,
-				createTime: BigInt(Math.floor(Date.now() / 1000)),
-				startTime: BigInt(0),
-				endTime: BigInt(0),
-				winner: "0x0000000000000000000000000000000000000000",
-				player2: "0x0000000000000000000000000000000000000000",
-				player1Hand: Hand.None,
-				player2Hand: Hand.None,
-				endReason: GameEndReason.NotEnded,
-			};
+			for (const message of log) {
+				const eventData = message.args;
 
-			setGames((prevGames) => [...prevGames, newGame]);
+				const newGame: GameData = {
+					id: eventData.gameId!,
+					bet: eventData.bet!,
+					player1: eventData.player1!,
+					player1Commit: eventData.player1Commit!,
+					status: GameStatus.WaitingForPlayer,
+					createTime: BigInt(Math.floor(Date.now() / 1000)),
+					startTime: BigInt(0),
+					endTime: BigInt(0),
+					winner: "0x0000000000000000000000000000000000000000",
+					player2: "0x0000000000000000000000000000000000000000",
+					player1Hand: Hand.None,
+					player2Hand: Hand.None,
+					endReason: GameEndReason.NotEnded,
+				};
+
+				setGames((prevGames) => [...prevGames, newGame]);
+			}
 		} catch (error) {
 			console.error("Error in GameCreated event listener:", error);
 		}
@@ -55,25 +58,28 @@ export default function GamesList({ userGames }: { userGames?:boolean }) {
 	function processGameCanceled(log: any[]) {
 		try {
 			console.log("GameCancelled event received", log);
-			const eventData = log[0].args;
-			const gameId = eventData.gameId;
 
-			console.log("updating state");
-			setGames((prevGames) => {
-				return prevGames.map((game) => {
-					if (game.id === gameId) {
-						console.log("updating game ", gameId);
-						return {
-							...game,
-							status: GameStatus.Finished,
-							endReason: GameEndReason.Cancelled,
-						};
-					} else {
-						return game;
-					}
+			for (const message of log) {
+				const eventData = message.args;
+				const gameId = eventData.gameId;
+
+				console.log("updating state");
+				setGames((prevGames) => {
+					return prevGames.map((game) => {
+						if (game.id === gameId) {
+							console.log("updating game ", gameId);
+							return {
+								...game,
+								status: GameStatus.Finished,
+								endReason: GameEndReason.Cancelled,
+							};
+						} else {
+							return game;
+						}
+					});
 				});
-			});
-			console.log("state updated");
+				console.log("state updated");
+			}
 		} catch (error) {
 			console.error("Error in GameCancelled event listener:", error);
 		}
@@ -82,24 +88,27 @@ export default function GamesList({ userGames }: { userGames?:boolean }) {
 	function processGameFinished(log: any[]) {
 		try {
 			console.log("GameFinished event received", log);
-			const eventData = log[0].args;
-			const gameId = eventData.gameId;
 
-			setGames((prevGames) => {
-				return prevGames.map((game) => {
-					if (game.id === gameId) {
-						return {
-							...game,
-							status: GameStatus.Finished,
-							winner: eventData.winner!,
-							endReason: eventData.endReason!,
-							player1Hand: eventData.player1Hand!,
-						};
-					} else {
-						return game;
-					}
+			for (const message of log) {
+				const eventData = message.args;
+				const gameId = eventData.gameId;
+
+				setGames((prevGames) => {
+					return prevGames.map((game) => {
+						if (game.id === gameId) {
+							return {
+								...game,
+								status: GameStatus.Finished,
+								winner: eventData.winner!,
+								endReason: eventData.endReason!,
+								player1Hand: eventData.player1Hand!,
+							};
+						} else {
+							return game;
+						}
+					});
 				});
-			});
+			}
 		} catch (error) {
 			console.error("Error in GameFinished event listener:", error);
 		}
@@ -108,24 +117,27 @@ export default function GamesList({ userGames }: { userGames?:boolean }) {
 	function processGameJoined(log: any[]) {
 		try {
 			console.log("GameJoined event received", log);
-			const eventData = log[0].args;
-			const gameId = eventData.gameId;
 
-			setGames((prevGames) => {
-				return prevGames.map((game) => {
-					if (game.id === gameId) {
-						return {
-							...game,
-							status: GameStatus.WaitingForHandReveal,
-							player2: eventData.player2!,
-							player2Hand: eventData.player2Hand!,
-							startTime: eventData.startTime!,
-						};
-					} else {
-						return game;
-					}
+			for (const message of log) {
+				const eventData = message.args;
+				const gameId = eventData.gameId;
+
+				setGames((prevGames) => {
+					return prevGames.map((game) => {
+						if (game.id === gameId) {
+							return {
+								...game,
+								status: GameStatus.WaitingForHandReveal,
+								player2: eventData.player2!,
+								player2Hand: eventData.player2Hand!,
+								startTime: eventData.startTime!,
+							};
+						} else {
+							return game;
+						}
+					});
 				});
-			});
+			}
 		} catch (error) {
 			console.error("Error in GameJoined event listener:", error);
 		}
