@@ -68,7 +68,7 @@ export default function Home() {
 								Cryptographic Fairness Guarantee
 							</h2>
 							<p className="text-lg tracking-wide text-black mt-4">
-								Player's hand is stored on the blockchain as a Keccak256 hash,
+								Player&apos;s hand is stored on the blockchain as a Keccak256 hash,
 								ensuring that the the actual hand is not revealed until the
 								reveal phase
 							</p>
@@ -102,7 +102,7 @@ export default function Home() {
 										className="text-black items-center shadow shadow-black text-lg font-semibold inline-flex px-6 focus:outline-none justify-center text-center bg-white border-black ease-in-out transform transition-all focus:ring-lila-700 focus:shadow-none border-2 duration-100 focus:bg-black focus:text-white sm:w-auto py-3 rounded-lg h-16 tracking-wide focus:translate-y-1 w-full hover:text-lila-800"
 										href="/"
 									>
-										Let's Go
+										Let&apos;s Go
 									</Link>
 								</div>
 							</div>
@@ -154,7 +154,7 @@ export default function Home() {
 								<div className="max-w-xl mt-4 text-base tracking-wide text-black">
 									After both players have joined the game, reveal your hand to
 									see who won. The reveal window is just 10 minutes, so be quick
-									or you'll lose your bet.
+									or you&apos;ll lose your bet.
 								</div>
 							</li>
 							<li className="bg-white p-8 lg:p-12">
