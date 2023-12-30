@@ -9,7 +9,7 @@ import { useContractEvent, useContractRead, useAccount } from "wagmi";
 const CreateGame = dynamic(() => import("@/components/custom/create-game"), {
 	ssr: false,
 });
-export default function GamesList({ userGames }: { userGames?:boolean }) {
+export default function GamesList({ userGames }: { userGames?: boolean }) {
 	const [games, setGames] = useState<GameData[]>([]);
 	const [logs, setLogs] = useState<any[]>([]);
 	const { address, isConnecting, isDisconnected } = useAccount();
@@ -184,8 +184,9 @@ export default function GamesList({ userGames }: { userGames?:boolean }) {
 						if (userGames) {
 							return game.player1 === address || game.player2 === address;
 						} else {
-							return true
-					}})
+							return true;
+						}
+					})
 					.sort((a, b) => {
 						if (userGames) {
 							// If userGames is true, sort by status 1 first, then 0, then 2

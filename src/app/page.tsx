@@ -1,112 +1,178 @@
-import Image from "next/image";
+import LogoVector from "@/components/vectors/logo";
+import Link from "next/link";
 
 export default function Home() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24">
-			<div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-				<p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-					Get started by editing&nbsp;
-					<code className="font-mono font-bold">src/app/page.tsx</code>
-				</p>
-				<div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-					<a
-						className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-						href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						By{" "}
-						<Image
-							src="/vercel.svg"
-							alt="Vercel Logo"
-							className="dark:invert"
-							width={100}
-							height={24}
-							priority
+		<main className="flex min-h-screen w-full flex-col items-center justify-between pt-20 max-sm:pt-0 divide-y-2 divide-black">
+			<div className="flex max-sm:flex-col md:flex-cols w-full md:divide-x-2 divide-black divide-y-2">
+				<div className="max-sm:w-full md:w-1/2 aspect-square bg-whitesmoke flex flex-col justify-center items-start p-8 lg:px-20 gap-12">
+					<div className="flex flex-cols space-x-4 w-full">
+						<div className="rounded-full bg-whitesmoke border-black border overflow-hidden aspect-square w-1/4 md:w-1/6 flex justify-center items-center animate-spin-slow">
+							<LogoVector color="#000000" />
+						</div>
+					</div>
+					<div className="flex-col space-y-4">
+						<p className="break-words text-3xl lg:text-5xl font-medium">
+							Play Fair, Play on the Blockchain
+						</p>
+						<p className="xl:text-xl text-black tracking-wide break-work">
+							Block. Paper. Scissors. is an on-chain implementation of one of
+							the oldest games in the book - Rock, Paper, Scissors, now
+							utilising the commit-reveal scheme
+						</p>
+					</div>
+					<Link href="/games" className="w-1/3 max-sm:w-full">
+						<div
+							className="
+							w-full
+							text-black 
+							items-center shadow shadow-softie-600 
+							text-lg font-semibold inline-flex px-6 
+							focus:outline-none justify-center text-center 
+							bg-softie-300 
+							focus:bg-softie-600 
+							border-softie-600 
+							duration-300 outline-none focus:shadow-none border-2 sm:w-auto py-3 rounded-lg h-16 tracking-wide focus:translate-y-1
+							hover:bg-softie-500
+						"
+						>
+							Play Now
+						</div>
+					</Link>
+				</div>
+				<div className="max-sm:w-full md:w-1/2 aspect-square bg-softie-500 flex justify-center items-center">
+					<div className="rounded-full bg-whitesmoke border-black border-4 overflow-hidden aspect-square w-1/3 flex justify-center items-center">
+						<img
+							src="https://64.media.tumblr.com/ebad78ee9aaaf6d245086b8e286e49b7/tumblr_n544xviC0U1svwlszo1_500.gif"
+							alt="A cool gif"
+							className="w-full"
 						/>
-					</a>
+					</div>
 				</div>
 			</div>
-
-			<div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-				<Image
-					className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-					src="/next.svg"
-					alt="Next.js Logo"
-					width={180}
-					height={37}
-					priority
-				/>
+			<div className="flex max-sm:flex-col md:flex-cols w-full md:divide-x-2 divide-black">
+				<div className="relative p-8 lg:p-20 items-center gap-12 h-full bg-mellow-300">
+					<div className="grid grid-cols-1 md:grid-cols-2 lg:text-center lg:grid-cols-3 gap-6 lg:gap-12">
+						<div>
+							<h2 className="text-3xl  text-black font-medium">
+								Blockchain Transparency
+							</h2>
+							<p className="text-lg tracking-wide text-black mt-4">
+								Every move, every victory is recorded in the immutable Blast L2
+								blockchain, ensuring maximum fairness and eliminating
+								manipulation
+							</p>
+						</div>
+						<div>
+							<h2 className="text-3xl  text-black font-medium">
+								Cryptographic Fairness Guarantee
+							</h2>
+							<p className="text-lg tracking-wide text-black mt-4">
+								Player's hand is stored on the blockchain as a Keccak256 hash,
+								ensuring that the the actual hand is not revealed until the
+								reveal phase
+							</p>
+						</div>
+						<div>
+							<h2 className="text-3xl  text-black font-medium">
+								Bets in Blast ETH
+							</h2>
+							<p className="text-lg tracking-wide text-black mt-4">
+								Participate in the game by placing bets using native ETH tokens,
+								seamlessly executing transactions thanks to our smart contract
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
-
-			<div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-				<a
-					href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className={`mb-3 text-2xl font-semibold`}>
-						Docs{" "}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
-						</span>
-					</h2>
-					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-						Find in-depth information about Next.js features and API.
-					</p>
-				</a>
-
-				<a
-					href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className={`mb-3 text-2xl font-semibold`}>
-						Learn{" "}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
-						</span>
-					</h2>
-					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-						Learn about Next.js in an interactive course with&nbsp;quizzes!
-					</p>
-				</a>
-
-				<a
-					href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className={`mb-3 text-2xl font-semibold`}>
-						Templates{" "}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
-						</span>
-					</h2>
-					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-						Explore starter templates for Next.js.
-					</p>
-				</a>
-
-				<a
-					href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className={`mb-3 text-2xl font-semibold`}>
-						Deploy{" "}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
-						</span>
-					</h2>
-					<p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-						Instantly deploy your Next.js site to a shareable URL with Vercel.
-					</p>
-				</a>
+			<div className="flex max-sm:flex-col md:flex-cols w-full md:divide-x-2 divide-black">
+				<div className="mx-auto 2xl:max-w-7xl lg:flex 2xl:border-x-2 border-black border-b-2">
+					<div className="lg:w-1/2 p-8 lg:px-20 bg-green-500">
+						<div className="lg:sticker lg:sticky py-16  top-20">
+							<div>
+								<h2 className="text-3xl mt-12 xl:text-6xl tracking-tight font-medium text-black">
+									How it Works
+								</h2>
+								<p className="max-w-md mt-4 tracking-wide xl:text-xl text-lg text-black">
+									The playthrough is very straightforward, but you have to pay
+									attention to the details
+								</p>
+								<div className="flex-col flex gap-3 mt-10 sm:flex-row">
+									<Link
+										className="text-black items-center shadow shadow-black text-lg font-semibold inline-flex px-6 focus:outline-none justify-center text-center bg-white border-black ease-in-out transform transition-all focus:ring-lila-700 focus:shadow-none border-2 duration-100 focus:bg-black focus:text-white sm:w-auto py-3 rounded-lg h-16 tracking-wide focus:translate-y-1 w-full hover:text-lila-800"
+										href="/"
+									>
+										Let's Go
+									</Link>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="lg:w-1/2 bg-green-500 lg:border-l-2 border-black">
+						<ul
+							className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-0.5 bg-black list-none"
+							role="list"
+						>
+							<li className="bg-white p-8 lg:p-12">
+								<div>
+									<div className="flex h-10 w-10 items-center justify-center border-2 border-black shadow-tiny duration-300 shadow-black rounded-full bg-green-500 font-semibold">
+										1
+									</div>
+									<p className="text-xl mt-8 text-black font-medium">
+										Start a Game
+									</p>
+								</div>
+								<div className="max-w-xl mt-4 text-base tracking-wide text-black">
+									Choose a bet and pick you Hand, then start a Game on the smart
+									contract. You can cancel the game at any time before the
+									reveal phase.
+								</div>
+							</li>
+							<li className="bg-white p-8 lg:p-12">
+								<div>
+									<div className="flex h-10 w-10 items-center justify-center border-2 border-black shadow-tiny duration-300 shadow-black rounded-full bg-green-500 font-semibold">
+										2
+									</div>
+									<p className="text-xl mt-8 text-black font-medium">
+										Get an Opponent
+									</p>
+								</div>
+								<div className="max-w-xl mt-4 text-base tracking-wide text-black">
+									Wait for another player to join your game, or join an existing
+									game.
+								</div>
+							</li>
+							<li className="bg-white p-8 lg:p-12">
+								<div>
+									<div className="flex h-10 w-10 items-center justify-center border-2 border-black shadow-tiny duration-300 shadow-black rounded-full bg-green-500 font-semibold">
+										3
+									</div>
+									<p className="text-xl mt-8 text-black font-medium">
+										Reveal your Hand
+									</p>
+								</div>
+								<div className="max-w-xl mt-4 text-base tracking-wide text-black">
+									After both players have joined the game, reveal your hand to
+									see who won. The reveal window is just 10 minutes, so be quick
+									or you'll lose your bet.
+								</div>
+							</li>
+							<li className="bg-white p-8 lg:p-12">
+								<div>
+									<div className="flex h-10 w-10 items-center justify-center border-2 border-black shadow-tiny duration-300 shadow-black rounded-full bg-green-500 font-semibold">
+										4
+									</div>
+									<p className="text-xl mt-8 text-black font-medium">
+										See how it went
+									</p>
+								</div>
+								<div className="max-w-xl mt-4 text-base tracking-wide text-black">
+									See the results of the game and claim your winnings.
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</main>
 	);

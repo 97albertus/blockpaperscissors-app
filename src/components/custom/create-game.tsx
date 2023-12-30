@@ -91,13 +91,9 @@ export default function CreateGame() {
 		}
 	}
 
-	const MobileForm = () => {
+	const MobileForm = () => {};
 
-	}
-
-	const DesktopForm = () => {
-
-	}
+	const DesktopForm = () => {};
 
 	return (
 		<div className="w-1/3 max-sm:w-full flex flex-col">
@@ -105,7 +101,7 @@ export default function CreateGame() {
 				<p className="text-xl font-semibold">New Game</p>
 			</div>
 			<div className="w-full flex flex-cols justify-center items-center h-32 md:h-10">
-				<div className='w-full flex max-sm:flex-col md:flex-cols'>
+				<div className="w-full flex max-sm:flex-col md:flex-cols">
 					<Input
 						type="number"
 						placeholder="Bet"
@@ -113,7 +109,7 @@ export default function CreateGame() {
 						onChange={(e) => setBet(Number(e.target.value))}
 						className="bg-white w-5/6 h-16 md:h-10 border-2 max-sm:border-b-0 border-black shadow shadow-black rounded-none md:rounded-bl-3xl focus-visible:ring-0 max-sm:w-full"
 					/>
-					<div className='flex flex-cols w-3/4 max-sm:w-full'>
+					<div className="flex flex-cols w-3/4 max-sm:w-full bg-black shadow shadow-black rounded-3xl">
 						<button
 							onClick={() => switchHand(1)}
 							className={`
@@ -133,11 +129,7 @@ export default function CreateGame() {
 								active:ring-0
 								transition-all 
 								duration-100
-								${
-															hand === 1
-																? "translate-y-1 outline-none shadow-top"
-																: ""
-														}
+								${hand === 1 ? "translate-y-1 outline-none shadow-top" : ""}
 							`}
 						>
 							<GiRock size="2em" className="-rotate-90" />
@@ -160,11 +152,7 @@ export default function CreateGame() {
 								active:ring-0
 								transition-all 
 								duration-100
-								${
-															hand === 2
-																? "translate-y-1 outline-none shadow-top"
-																: ""
-														}
+								${hand === 2 ? "translate-y-1 outline-none shadow-top" : ""}
 							`}
 						>
 							<GiPaper size="2em" className="-rotate-90" />
@@ -187,11 +175,7 @@ export default function CreateGame() {
 								active:ring-0
 								transition-all 
 								duration-100
-								${
-															hand === 3
-																? "translate-y-1 outline-none shadow-top"
-																: ""
-														}
+								${hand === 3 ? "translate-y-1 outline-none shadow-top" : ""}
 							`}
 						>
 							<GiScissors size="2em" className="-rotate-90" />

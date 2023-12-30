@@ -4,7 +4,9 @@ import MobileHeader from "@/components/custom/mobile-header";
 // import Navbar from "@/components/custom/navbar";
 import { Toaster } from "sonner";
 import dynamic from "next/dynamic";
-const Navbar = dynamic(() => import("@/components/custom/navbar"), { ssr: false });
+const Navbar = dynamic(() => import("@/components/custom/navbar"), {
+	ssr: false,
+});
 const Fab = dynamic(() => import("@/components/custom/fab"), { ssr: false });
 
 export default function MainLayout({
@@ -13,12 +15,10 @@ export default function MainLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<>	
+		<>
 			<Navbar />
 			<MobileHeader />
-			<main className="min-h-screen flex justify-start items-start p-36 max-sm:p-8 max-sm:pb-16 border-black border-1 w-full overflow-auto">
-				{children}
-			</main>
+			<main className="min-h-screen w-full p-0">{children}</main>
 			<Fab />
 			<Toaster
 				offset={48}
@@ -27,7 +27,7 @@ export default function MainLayout({
 					duration: 60 * 1000,
 				}}
 				position="bottom-right"
-				className='max-sm:hidden'
+				className="max-sm:hidden"
 			/>
 			<Toaster
 				offset={12}
@@ -36,7 +36,7 @@ export default function MainLayout({
 					duration: 60 * 1000,
 				}}
 				position="top-center"
-				className='md:hidden'
+				className="md:hidden"
 			/>
 		</>
 	);

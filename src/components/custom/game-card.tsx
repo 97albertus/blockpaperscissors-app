@@ -69,11 +69,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 		},
 		onError(error) {
 			toast.custom((t) => (
-				<Notification
-					id={t}
-					title="Reveal failed"
-					subtitle={error.message}
-				/>
+				<Notification id={t} title="Reveal failed" subtitle={error.message} />
 			));
 		},
 	});
@@ -98,11 +94,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 		},
 		onError(error) {
 			toast.custom((t) => (
-				<Notification
-					id={t}
-					title="Claim failed"
-					subtitle={error.message}
-				/>
+				<Notification id={t} title="Claim failed" subtitle={error.message} />
 			));
 		},
 	});

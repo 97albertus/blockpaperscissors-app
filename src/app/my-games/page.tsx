@@ -1,5 +1,9 @@
 import MyGames from "@/sections/my-games";
 
 export default function Page() {
-	return <MyGames />;
+	return (
+		<div className="flex justify-start items-start p-36 md:pt-28 max-sm:p-8 max-sm:pb-16 border-black border-1 w-full overflow-auto">
+			<MyGames />
+		</div>
+	);
 }
