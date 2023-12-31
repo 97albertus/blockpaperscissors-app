@@ -7,7 +7,7 @@ export default function Home() {
 			<div className="flex max-sm:flex-col md:flex-cols w-full md:divide-x-2 divide-black divide-y-2">
 				<div className="max-sm:w-full md:w-1/2 aspect-square bg-whitesmoke flex flex-col justify-center items-start p-8 lg:px-20 gap-12">
 					<div className="flex flex-cols space-x-4 w-full">
-						<div className="rounded-full bg-whitesmoke border-black border overflow-hidden aspect-square w-1/4 md:w-1/6 flex justify-center items-center animate-spin-slow">
+						<div className="rounded-full bg-whitesmoke border-black border overflow-hidden aspect-square w-1/4 md:w-1/6 flex justify-center items-center animate-spin-slow p-2">
 							<LogoVector color="#000000" />
 						</div>
 					</div>
@@ -100,7 +100,7 @@ export default function Home() {
 								<div className="flex-col flex gap-3 mt-10 sm:flex-row">
 									<Link
 										className="text-black items-center shadow shadow-black text-lg font-semibold inline-flex px-6 focus:outline-none justify-center text-center bg-white border-black ease-in-out transform transition-all focus:ring-lila-700 focus:shadow-none border-2 duration-100 focus:bg-black focus:text-white sm:w-auto py-3 rounded-lg h-16 tracking-wide focus:translate-y-1 w-full hover:text-lila-800"
-										href="/"
+										href="/games"
 									>
 										Let&apos;s Go
 									</Link>
