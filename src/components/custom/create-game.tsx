@@ -9,7 +9,12 @@ import { useState } from "react";
 import { GiPaper, GiRock, GiScissors } from "react-icons/gi";
 import { toast } from "sonner";
 import { encodeAbiParameters, keccak256, parseEther } from "viem";
-import { useAccount, useContractWrite, useNetwork, useSwitchNetwork } from "wagmi";
+import {
+	useAccount,
+	useContractWrite,
+	useNetwork,
+	useSwitchNetwork,
+} from "wagmi";
 import { Input } from "../ui/input";
 
 function generateGameId() {
@@ -223,15 +228,15 @@ export default function CreateGame() {
                         transition-all 
                         duration-100
                         ${
-							!hand || !bet || bet < 0.001
-								? "text-gray-500 bg-success-100 cursor-not-allowed"
-								: "bg-success-300"
-						}
+													!hand || !bet || bet < 0.001
+														? "text-gray-500 bg-success-100 cursor-not-allowed"
+														: "bg-success-300"
+												}
                         ${
-							isLoading
-								? "translate-y-1 outline-none shadow-top"
-								: ""
-						}
+													isLoading
+														? "translate-y-1 outline-none shadow-top"
+														: ""
+												}
                     `}
 				>
 					<svg

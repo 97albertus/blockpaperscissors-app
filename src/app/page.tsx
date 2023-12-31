@@ -21,20 +21,21 @@ export default function Home() {
 							utilising the commit-reveal scheme
 						</p>
 					</div>
-					<Link href="/games" className="w-1/3 max-sm:w-full">
+					<Link href="/games" className="w-full lg:w-1/3">
 						<div
 							className="
-							w-full
-							text-black 
-							items-center shadow shadow-softie-600 
-							text-lg font-semibold inline-flex px-6 
-							focus:outline-none justify-center text-center 
-							bg-softie-300 
-							focus:bg-softie-600 
-							border-softie-600 
-							duration-300 outline-none focus:shadow-none border-2 sm:w-auto py-3 rounded-lg h-16 tracking-wide focus:translate-y-1
-							hover:bg-softie-500
-						"
+								w-full
+								text-black 
+								flex justify-center items-center 
+								shadow shadow-softie-600 
+								text-lg font-semibold  px-6 
+								focus:outline-none 
+								bg-softie-300 
+								focus:bg-softie-600 
+								border-softie-600 
+								duration-300 outline-none focus:shadow-none border-2 sm:w-auto py-3 rounded-lg h-16 tracking-wide focus:translate-y-1
+								hover:bg-softie-500
+							"
 						>
 							Play Now
 						</div>
@@ -97,9 +98,21 @@ export default function Home() {
 									The playthrough is very straightforward, but you have to pay
 									attention to the details
 								</p>
-								<div className="flex-col flex gap-3 mt-10 sm:flex-row">
+								<div className="flex-col flex mt-10 w-full md:w-1/2 lg:w-1/3">
 									<Link
-										className="text-black items-center shadow shadow-black text-lg font-semibold inline-flex px-6 focus:outline-none justify-center text-center bg-white border-black ease-in-out transform transition-all focus:ring-lila-700 focus:shadow-none border-2 duration-100 focus:bg-black focus:text-white sm:w-auto py-3 rounded-lg h-16 tracking-wide focus:translate-y-1 w-full hover:text-lila-800"
+										className="
+											
+											text-black items-center 
+											shadow shadow-black 
+											text-lg font-semibold px-6 
+											focus:outline-none flex justify-center 
+											bg-white border-black 
+											ease-in-out transform transition-all
+											focus:ring-lila-700 
+											focus:shadow-none 
+											border-2 duration-100 
+											focus:bg-black 
+											focus:text-white sm:w-auto py-3 rounded-lg h-16 tracking-wide focus:translate-y-1 hover:text-lila-800"
 										href="/games"
 									>
 										Let&apos;s Go
