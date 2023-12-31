@@ -90,7 +90,7 @@ export default function Home() {
 					<div className="lg:w-1/2 p-8 lg:px-20 bg-green-500">
 						<div className="lg:sticker lg:sticky py-16  top-20">
 							<div>
-								<h2 className="text-3xl mt-12 xl:text-6xl tracking-tight font-medium text-black">
+								<h2 className="text-3xl xl:text-6xl tracking-tight font-medium text-black">
 									How it Works
 								</h2>
 								<p className="max-w-md mt-4 tracking-wide xl:text-xl text-lg text-black">
