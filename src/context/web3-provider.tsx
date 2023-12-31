@@ -1,25 +1,13 @@
 "use client";
+import { walletConnectProvider } from "@web3modal/wagmi";
 import { createWeb3Modal } from "@web3modal/wagmi/react";
-import { walletConnectProvider, EIP6963Connector } from "@web3modal/wagmi";
-
+import { ReactNode } from "react";
+import { goerli } from "viem/chains";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
-import { publicProvider } from "wagmi/providers/public";
-import { infuraProvider } from "wagmi/providers/infura";
-
-import {
-	optimismGoerli,
-	sepolia,
-	goerli,
-	arbitrumGoerli,
-	linea,
-	scroll,
-	base,
-} from "viem/chains";
 import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
-import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
-import { ReactNode } from "react";
+import { infuraProvider } from "wagmi/providers/infura";
 
 const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!;
 const infuraApiKey = process.env.NEXT_PUBLIC_INFURA_API_KEY!;

@@ -17,6 +17,7 @@ export default function GamesList({ userGames }: { userGames?: boolean }) {
 		address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS! as `0x${string}`,
 		abi: RPS_ABI,
 		functionName: "getAllGames",
+		chainId: 5,
 		onSuccess(data) {
 			setGames(data as GameData[]);
 		},

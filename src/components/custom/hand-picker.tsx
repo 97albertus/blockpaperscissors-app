@@ -20,6 +20,7 @@ export default function HandPicker({
 		address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS! as `0x${string}`,
 		abi: RPS_ABI,
 		functionName: "joinGame",
+		chainId: 5,
 		onSuccess(data) {
 			toast.custom((t) => <TransactionNotification id={t} txid={data.hash} />);
 		},

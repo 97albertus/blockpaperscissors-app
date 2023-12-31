@@ -9,7 +9,7 @@ import { useState } from "react";
 import { GiPaper, GiRock, GiScissors } from "react-icons/gi";
 import { toast } from "sonner";
 import { encodeAbiParameters, keccak256, parseEther } from "viem";
-import { useAccount, useContractWrite } from "wagmi";
+import { useAccount, useContractWrite, useNetwork, useSwitchNetwork } from "wagmi";
 import { Input } from "../ui/input";
 
 function generateGameId() {
@@ -24,6 +24,20 @@ function generateGameId() {
 
 export default function CreateGame() {
 	const { address, isConnecting, isDisconnected } = useAccount();
+	const { chain } = useNetwork();
+	const {
+		chains,
+		error,
+		isLoading: isChainsLoading,
+		pendingChainId,
+		switchNetwork,
+	} = useSwitchNetwork({
+		chainId: 5,
+		onSuccess: () => {
+			createGame();
+		},
+	});
+
 	const gameId = generateGameId();
 
 	const [password, savePassword] = useLocalStorage<string>(`${address}-pwd`);
@@ -46,6 +60,7 @@ export default function CreateGame() {
 		address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS! as `0x${string}`,
 		abi: RPS_ABI,
 		functionName: "startGame",
+		chainId: 5,
 		onSuccess(data) {
 			toast.custom((t) => <TransactionNotification id={t} txid={data.hash} />);
 			setHand(undefined);
@@ -66,21 +81,26 @@ export default function CreateGame() {
 	});
 
 	function createGame() {
-		const encodedArgs = encodeAbiParameters(
-			[
-				{ name: "x", type: "uint8" },
-				{ name: "y", type: "string" },
-			],
-			[hand!, password],
-		);
+		if (chain && chain.id === 5) {
+			const encodedArgs = encodeAbiParameters(
+				[
+					{ name: "x", type: "uint8" },
+					{ name: "y", type: "string" },
+				],
+				[hand!, password],
+			);
 
-		saveGameHand(hand!);
-		const handCommit = keccak256(encodedArgs);
+			saveGameHand(hand!);
+			const handCommit = keccak256(encodedArgs);
 
-		write({
-			value: parseEther(bet!.toString()),
-			args: [gameId, handCommit, parseEther(bet!.toString())],
-		});
+			write({
+				value: parseEther(bet!.toString()),
+				args: [gameId, handCommit, parseEther(bet!.toString())],
+			});
+		} else {
+			console.log(`switching chains`);
+			switchNetwork!();
+		}
 	}
 
 	function switchHand(newHand: number) {
@@ -203,15 +223,15 @@ export default function CreateGame() {
                         transition-all 
                         duration-100
                         ${
-													!hand || !bet || bet < 0.001
-														? "text-gray-500 bg-success-100 cursor-not-allowed"
-														: "bg-success-300"
-												}
+							!hand || !bet || bet < 0.001
+								? "text-gray-500 bg-success-100 cursor-not-allowed"
+								: "bg-success-300"
+						}
                         ${
-													isLoading
-														? "translate-y-1 outline-none shadow-top"
-														: ""
-												}
+							isLoading
+								? "translate-y-1 outline-none shadow-top"
+								: ""
+						}
                     `}
 				>
 					<svg

@@ -68,9 +68,9 @@ export default function Home() {
 								Cryptographic Fairness Guarantee
 							</h2>
 							<p className="text-lg tracking-wide text-black mt-4">
-								Player&apos;s hand is stored on the blockchain as a Keccak256 hash,
-								ensuring that the the actual hand is not revealed until the
-								reveal phase
+								Player&apos;s hand is stored on the blockchain as a Keccak256
+								hash, ensuring that the the actual hand is not revealed until
+								the reveal phase
 							</p>
 						</div>
 						<div>
