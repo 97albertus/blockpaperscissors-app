@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { FaTelegram } from "react-icons/fa6";
 import { GiScissors } from "react-icons/gi";
 import { SiGithub } from "react-icons/si";
+import { SiGitbook } from "react-icons/si";
 import { useAccount } from "wagmi";
 import { truncateAddress } from "./players-section";
 
@@ -116,7 +117,7 @@ export default function Navbar() {
 									justify-center items-center
 								`}
 						>
-							<SiGithub size="2em" />
+							<SiGitbook size="2em" />
 						</Link>
 					</div>
 					<div className="w-2/6 flex flex-cols justify-center items-center h-full max-sm:hidden">
