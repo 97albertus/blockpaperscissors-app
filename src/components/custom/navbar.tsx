@@ -17,16 +17,10 @@ export default function Navbar() {
 		<div className="z-50 fixed h-20 left-0 right-0 flex flex-cols min-w-screen items-center justify-between transition-all duration-100 max-sm:hidden">
 			<div className="w-1/4 h-20 bg-lila-500 flex flex-cols items-center overflow-hidden shadow shadow-black border-y-2 border-black border-r-2">
 				<div className="flex justify-end flex-col">
-					<p className="font-semibold text-xl tracking-tighter leading-none text-right align-text-bottom">
-						BLOCK.
-					</p>
-					<p className="font-semibold text-xl tracking-tighter leading-none text-right align-text-top">
-						PAPER.
-					</p>
+					<p className="font-semibold text-xl tracking-tighter leading-none text-right align-text-bottom">BLOCK.</p>
+					<p className="font-semibold text-xl tracking-tighter leading-none text-right align-text-top">PAPER.</p>
 				</div>
-				<p className="font-semibold text-5xl tracking-tight leading-tight">
-					SCISSORS.
-				</p>
+				<p className="font-semibold text-5xl tracking-tight leading-tight">SCISSORS.</p>
 				<div className="flex justify-end flex-cols w-full -mr-2">
 					<GiScissors className="text-7xl rotate-180" />
 				</div>
@@ -46,11 +40,7 @@ export default function Navbar() {
                                 focus:ring-0
                                 transition-all 
                                 duration-100
-                                ${
-																	pathname === "/"
-																		? "translate-y-1 outline-none shadow-top ring-0"
-																		: ""
-																}
+                                ${pathname === "/" ? "translate-y-1 outline-none shadow-top ring-0" : ""}
                             `}
 						>
 							<p className="text-xl font-semibold">Home</p>
@@ -69,11 +59,7 @@ export default function Navbar() {
                                 focus:ring-0
                                 transition-all 
                                 duration-100
-                                ${
-																	pathname === "/games"
-																		? "translate-y-1 outline-none shadow-top ring-0"
-																		: ""
-																}
+                                ${pathname === "/games" ? "translate-y-1 outline-none shadow-top ring-0" : ""}
                             `}
 						>
 							<p className="text-xl font-semibold">Play</p>
@@ -92,11 +78,7 @@ export default function Navbar() {
                                 focus:ring-0
                                 transition-all 
                                 duration-100
-                                ${
-																	pathname === "/my-games"
-																		? "translate-y-1 outline-none shadow-top ring-0"
-																		: ""
-																}
+                                ${pathname === "/my-games" ? "translate-y-1 outline-none shadow-top ring-0" : ""}
                             `}
 						>
 							<p className="text-xl font-semibold">My Games</p>
@@ -112,28 +94,32 @@ export default function Navbar() {
                                 shadow shadow-black 
                             `}
 						></div>
-						<button
-							className={`
-                                h-full w-1/4
-                                border-y-2 border-black 
-                                shadow shadow-black 
-                                flex
-                                justify-center items-center
-                            `}
-						>
-							<FaTelegram size="2em" />
-						</button>
-						<button
-							className={`
-                                h-full w-1/4
-                                border-y-2 border-black border-r
-                                shadow shadow-black 
-                                flex
-                                justify-center items-center
-                            `}
-						>
-							<SiGithub size="2em" />
-						</button>
+						<Link href="https://t.me/ropasci">
+							<button
+								className={`
+									h-full w-1/4
+									border-y-2 border-black 
+									shadow shadow-black 
+									flex
+									justify-center items-center
+								`}
+							>
+								<FaTelegram size="2em" />
+							</button>
+						</Link>
+						<Link href="https://t.me/ropasci">
+							<button
+								className={`
+									h-full w-1/4
+									border-y-2 border-black border-r
+									shadow shadow-black 
+									flex
+									justify-center items-center
+								`}
+							>
+								<SiGithub size="2em" />
+							</button>
+						</Link>
 					</div>
 					<div className="w-2/6 flex flex-cols justify-center items-center h-full max-sm:hidden">
 						{/* <w3m-button /> */}
@@ -149,9 +135,7 @@ export default function Navbar() {
                                 duration-100
                             `}
 						>
-							<p className="text-xl font-medium text-white">
-								{address ? truncateAddress(address) : "Connect"}
-							</p>
+							<p className="text-xl font-medium text-white">{address ? truncateAddress(address) : "Connect"}</p>
 						</button>
 					</div>
 				</div>
