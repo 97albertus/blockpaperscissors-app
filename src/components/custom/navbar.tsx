@@ -107,7 +107,7 @@ export default function Navbar() {
 							<FaTelegram size="2em" />
 						</Link>
 						<Link
-							href="https://gitbook.cryptobots.me/cryptobots/how-to-start-playing-cryptobots-game"
+							href="https://ropasci.gitbook.io/"
 							className={`
 									h-full w-1/4
 									border-y-2 border-black border-r
