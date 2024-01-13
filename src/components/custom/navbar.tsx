@@ -94,31 +94,29 @@ export default function Navbar() {
                                 shadow shadow-black 
                             `}
 						></div>
-						<Link href="https://t.me/ropasci">
-							<button
-								className={`
+						<Link
+							href="https://t.me/ropasci"
+							className={`
 									h-full w-1/4
 									border-y-2 border-black 
 									shadow shadow-black 
 									flex
 									justify-center items-center
 								`}
-							>
-								<FaTelegram size="2em" />
-							</button>
+						>
+							<FaTelegram size="2em" />
 						</Link>
-						<Link href="https://t.me/ropasci">
-							<button
-								className={`
+						<Link
+							href="https://t.me/ropasci"
+							className={`
 									h-full w-1/4
 									border-y-2 border-black border-r
 									shadow shadow-black 
 									flex
 									justify-center items-center
 								`}
-							>
-								<SiGithub size="2em" />
-							</button>
+						>
+							<SiGithub size="2em" />
 						</Link>
 					</div>
 					<div className="w-2/6 flex flex-cols justify-center items-center h-full max-sm:hidden">
