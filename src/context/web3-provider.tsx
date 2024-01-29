@@ -3,12 +3,14 @@ import { walletConnectProvider } from "@web3modal/wagmi";
 import { createWeb3Modal } from "@web3modal/wagmi/react";
 import { ReactNode } from "react";
 import { defineChain } from "viem";
-import { goerli } from "viem/chains";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
 import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
+import { publicProvider } from "wagmi/providers/public";
+
 import { infuraProvider } from "wagmi/providers/infura";
+import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 
 const projectId = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID!;
 const infuraApiKey = process.env.NEXT_PUBLIC_INFURA_API_KEY!;
@@ -42,7 +44,21 @@ export const blastSepolia = /*#__PURE__*/ defineChain({
 
 const { chains, publicClient } = configureChains(
 	[blastSepolia],
-	[infuraProvider({ apiKey: infuraApiKey }), walletConnectProvider({ projectId })]
+	[
+		infuraProvider({ apiKey: infuraApiKey }),
+		walletConnectProvider({ projectId }),
+		publicProvider(),
+		jsonRpcProvider({
+			rpc: (chain) => ({
+				http: `https://rpc.ankr.com/blast_testnet_sepolia/${blastApiKey}`,
+			}),
+		}),
+		jsonRpcProvider({
+			rpc: (chain) => ({
+				http: `https://sepolia.blast.io`,
+			}),
+		}),
+	]
 );
 
 const metadata = {
