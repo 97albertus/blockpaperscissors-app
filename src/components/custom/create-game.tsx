@@ -70,26 +70,21 @@ export default function CreateGame() {
 	});
 
 	function createGame() {
-		if (chain && chain.id === 5) {
-			const encodedArgs = encodeAbiParameters(
-				[
-					{ name: "x", type: "uint8" },
-					{ name: "y", type: "string" },
-				],
-				[hand!, password]
-			);
+		const encodedArgs = encodeAbiParameters(
+			[
+				{ name: "x", type: "uint8" },
+				{ name: "y", type: "string" },
+			],
+			[hand!, password]
+		);
 
-			saveGameHand(hand!);
-			const handCommit = keccak256(encodedArgs);
+		saveGameHand(hand!);
+		const handCommit = keccak256(encodedArgs);
 
-			write({
-				value: parseEther(bet!.toString()),
-				args: [gameId, handCommit, parseEther(bet!.toString())],
-			});
-		} else {
-			console.log(`switching chains`);
-			// switchNetwork!();
-		}
+		write({
+			value: parseEther(bet!.toString()),
+			args: [gameId, handCommit, parseEther(bet!.toString())],
+		});
 	}
 
 	function switchHand(newHand: number) {
