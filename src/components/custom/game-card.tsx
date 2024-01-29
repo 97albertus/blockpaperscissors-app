@@ -13,9 +13,7 @@ import PlayerHand from "./user-hand";
 export default function GameCard({ game, id }: { game: GameData; id: string }) {
 	const { address, isConnecting, isDisconnected } = useAccount();
 
-	const [gameHand, saveGameHand] = useLocalStorage<number>(
-		`${address}-${id}-hand`,
-	);
+	const [gameHand, saveGameHand] = useLocalStorage<number>(`${address}-${id}-hand`);
 	const [password, savePassword] = useLocalStorage<string>(`${address}-pwd`);
 	const endTime = Number(game.startTime) + 10 * 60; // 1 hour from now
 	const timeLeft = useCountdown(endTime);
@@ -30,7 +28,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 		abi: RPS_ABI,
 		functionName: "cancelGame",
 		args: [id],
-		chainId: 5,
+		// chainId: 5,
 		onSuccess(data) {
 			toast.custom((t) => (
 				<TransactionNotification
@@ -41,13 +39,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 			));
 		},
 		onError(error) {
-			toast.custom((t) => (
-				<Notification
-					id={t}
-					title="Failed to cancel game"
-					subtitle={error.message}
-				/>
-			));
+			toast.custom((t) => <Notification id={t} title="Failed to cancel game" subtitle={error.message} />);
 		},
 	});
 	const {
@@ -60,7 +52,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 		abi: RPS_ABI,
 		functionName: "revealHand",
 		args: [id, gameHand, password],
-		chainId: 5,
+		// chainId: 5,
 		onSuccess(data) {
 			toast.custom((t) => (
 				<TransactionNotification
@@ -71,9 +63,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 			));
 		},
 		onError(error) {
-			toast.custom((t) => (
-				<Notification id={t} title="Reveal failed" subtitle={error.message} />
-			));
+			toast.custom((t) => <Notification id={t} title="Reveal failed" subtitle={error.message} />);
 		},
 	});
 	const {
@@ -86,7 +76,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 		abi: RPS_ABI,
 		functionName: "claimTimeout",
 		args: [id],
-		chainId: 5,
+		// chainId: 5,
 		onSuccess(data) {
 			toast.custom((t) => (
 				<TransactionNotification
@@ -97,9 +87,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 			));
 		},
 		onError(error) {
-			toast.custom((t) => (
-				<Notification id={t} title="Claim failed" subtitle={error.message} />
-			));
+			toast.custom((t) => <Notification id={t} title="Claim failed" subtitle={error.message} />);
 		},
 	});
 
@@ -173,11 +161,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 							bg-white
 							h-10
 							border-black border-2 shadow shadow-black rounded-b-3xl
-							${
-								(isPlayer1 && !isTimedOut) || (isTimedOut && isPlayer2)
-									? "w-1/3 rounded-br-none"
-									: "w-full"
-							}
+							${(isPlayer1 && !isTimedOut) || (isTimedOut && isPlayer2) ? "w-1/3 rounded-br-none" : "w-full"}
 						`}
 							>
 								<p>{isTimedOut ? "00:00:00" : timeLeft}</p>
@@ -278,9 +262,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 			<div className="bg-white border-2 border-black rounded-3xl rounded-b-none border-b-0 h-full w-full">
 				<div className="w-full border-b-2 border-black px-4 flex flex-cols justify-between">
 					<p className="text-xl font-semibold">{id}</p>
-					<p className="text-xl font-semibold">
-						{Number(game.bet) / 10 ** 18} ETH
-					</p>
+					<p className="text-xl font-semibold">{Number(game.bet) / 10 ** 18} ETH</p>
 				</div>
 				<PlayersSection player1={game.player1} player2={game.player2} />
 			</div>

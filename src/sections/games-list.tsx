@@ -17,7 +17,7 @@ export default function GamesList({ userGames }: { userGames?: boolean }) {
 		address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS! as `0x${string}`,
 		abi: RPS_ABI,
 		functionName: "getAllGames",
-		chainId: 5,
+		// chainId: 5,
 		onSuccess(data) {
 			setGames(data as GameData[]);
 		},
@@ -202,9 +202,7 @@ export default function GamesList({ userGames }: { userGames?: boolean }) {
 						}
 					})
 					.sort((a, b) => Number(b.createTime) - Number(a.createTime))
-					.map((game, index) => (
-						<GameCard game={game} id={game.id} key={index} />
-					))
+					.map((game, index) => <GameCard game={game} id={game.id} key={index} />)
 			) : (
 				<p>no data</p>
 			)}

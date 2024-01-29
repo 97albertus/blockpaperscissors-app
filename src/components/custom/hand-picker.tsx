@@ -3,35 +3,20 @@ import { GameData } from "@/lib/types";
 import { useContractWrite } from "wagmi";
 import { Button } from "../ui/button";
 import PlayerHand from "./user-hand";
-import {
-	Notification,
-	TransactionNotification,
-} from "@/components/custom/notifications";
+import { Notification, TransactionNotification } from "@/components/custom/notifications";
 import { toast } from "sonner";
 
-export default function HandPicker({
-	game,
-	gameId,
-}: {
-	game: GameData;
-	gameId: string;
-}) {
+export default function HandPicker({ game, gameId }: { game: GameData; gameId: string }) {
 	const { data, isLoading, isSuccess, write } = useContractWrite({
 		address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS! as `0x${string}`,
 		abi: RPS_ABI,
 		functionName: "joinGame",
-		chainId: 5,
+		// chainId: 5,
 		onSuccess(data) {
 			toast.custom((t) => <TransactionNotification id={t} txid={data.hash} />);
 		},
 		onError(error) {
-			toast.custom((t) => (
-				<Notification
-					id={t}
-					title="Game creation failed"
-					subtitle={error.message}
-				/>
-			));
+			toast.custom((t) => <Notification id={t} title="Game creation failed" subtitle={error.message} />);
 		},
 	});
 

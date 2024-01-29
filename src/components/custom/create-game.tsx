@@ -29,7 +29,7 @@ export default function CreateGame() {
 	// 	pendingChainId,
 	// 	switchNetwork,
 	// } = useSwitchNetwork({
-	// 	chainId: 5,
+	// 	// chainId: 5,
 	// 	onSuccess: () => {
 	// 		createGame();
 	// 	},
@@ -55,7 +55,7 @@ export default function CreateGame() {
 		address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS! as `0x${string}`,
 		abi: RPS_ABI,
 		functionName: "startGame",
-		chainId: 5,
+		// // chainId: 5,
 		onSuccess(data) {
 			toast.custom((t) => <TransactionNotification id={t} txid={data.hash} />);
 			setHand(undefined);
