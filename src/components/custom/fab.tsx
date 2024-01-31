@@ -10,6 +10,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaTelegramPlane } from "react-icons/fa";
 import Blockies from "react-blockies";
 import Link from "next/link";
+import { FaYoutube } from "react-icons/fa6";
 
 export default function Fab() {
 	const pathname = usePathname();
@@ -105,14 +106,17 @@ export default function Fab() {
 							<div className="w-full h-14 flex flex-cols justify-center items-center gap-x-4">Home</div>
 						</Link>
 						<div className="w-1/2 h-14 divide-x-2 divide-black flex flex-cols justify-center items-center">
-							<Link className="w-1/3 h-full flex items-center justify-center" href="https://ropasci.gitbook.io/">
-								<SiGitbook size={32} />
+							<Link
+								className="w-1/3 h-full flex items-center justify-center"
+								href="https://www.youtube.com/watch?v=Z8rNXIYzsys"
+							>
+								<FaYoutube size={32} />
 							</Link>
-							<Link className="w-1/3 h-full flex items-center justify-center" href="">
+							<Link className="w-1/3 h-full flex items-center justify-center" href="https://twitter.com/ropascis">
 								<FaXTwitter size={32} />
 							</Link>
-							<Link className="w-1/3 h-full flex items-center justify-center" href="https://t.me/ropasci">
-								<FaTelegramPlane size={32} />
+							<Link className="w-1/3 h-full flex items-center justify-center" href="https://ropasci.gitbook.io/">
+								<SiGitbook size={32} />
 							</Link>
 						</div>
 					</div>

@@ -8,6 +8,8 @@ import { SiGithub } from "react-icons/si";
 import { SiGitbook } from "react-icons/si";
 import { useAccount } from "wagmi";
 import { truncateAddress } from "./players-section";
+import { FaYoutube } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Navbar() {
 	const pathname = usePathname();
@@ -90,13 +92,13 @@ export default function Navbar() {
 					<div className="w-4/6 flex flex-cols justify-end h-full max-sm:hidden bg-lila-500">
 						<div
 							className={`
-                                h-full w-2/4
+                                h-full w-1/4
                                 border-y-2 border-black border-l
                                 shadow shadow-black 
                             `}
 						></div>
 						<Link
-							href="https://t.me/ropasci"
+							href="https://www.youtube.com/watch?v=Z8rNXIYzsys"
 							className={`
 									h-full w-1/4
 									border-y-2 border-black 
@@ -105,7 +107,19 @@ export default function Navbar() {
 									justify-center items-center
 								`}
 						>
-							<FaTelegram size="2em" />
+							<FaYoutube size="2em" />
+						</Link>
+						<Link
+							href="https://twitter.com/ropascis"
+							className={`
+									h-full w-1/4
+									border-y-2 border-black 
+									shadow shadow-black 
+									flex
+									justify-center items-center
+								`}
+						>
+							<FaXTwitter size="2em" />
 						</Link>
 						<Link
 							href="https://ropasci.gitbook.io/"
