@@ -28,7 +28,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 		abi: RPS_ABI,
 		functionName: "cancelGame",
 		args: [id],
-		// chainId: 5,
+		chainId: 168_587_773,
 		onSuccess(data) {
 			toast.custom((t) => (
 				<TransactionNotification
@@ -52,7 +52,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 		abi: RPS_ABI,
 		functionName: "revealHand",
 		args: [id, gameHand, password],
-		// chainId: 5,
+		chainId: 168_587_773,
 		onSuccess(data) {
 			toast.custom((t) => (
 				<TransactionNotification
@@ -76,7 +76,7 @@ export default function GameCard({ game, id }: { game: GameData; id: string }) {
 		abi: RPS_ABI,
 		functionName: "claimTimeout",
 		args: [id],
-		// chainId: 5,
+		chainId: 168_587_773,
 		onSuccess(data) {
 			toast.custom((t) => (
 				<TransactionNotification
